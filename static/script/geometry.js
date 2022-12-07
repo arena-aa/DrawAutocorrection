@@ -31,9 +31,9 @@ export class Dimensions {
         );
     }
 
-    isIntersectsFrame(frame) {
-        return !(this.minY < frame.maxY || this.maxY > frame.minY || this.minX < frame.maxX || this.maxX > frame.minX)
-    }
+    //isIntersectsFrame(frame) {
+        //return !(this.minY < frame.maxY || this.maxY > frame.minY || this.minX < frame.maxX || this.maxX > frame.minX)
+    //}
 }
 
 class IndexPoint {

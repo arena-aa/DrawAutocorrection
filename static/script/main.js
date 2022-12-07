@@ -77,7 +77,7 @@ let saveBtn = document.querySelector(".save")
 saveBtn.addEventListener("click", () => {
 //    let dim = findDimIn(points);
 //    getScaledImageFrom(dim);
-//    saveImage("sketch.png");
+    saveImage("sketch.png");
 })
 
 function saveImage(name) {
@@ -135,19 +135,19 @@ function adjustShapeTo(shapeType, shapeId) {
         return;
     }
     const shape = allShapes.findLast(item => item.id === shapeId);
-    eraseRect(shape.rect);
+    eraseCanvas(canvas);
 
-    const shapesToRedraw = allShapes.filter(item => {
-        if(item.id == shapeId) {
-            return false;
-        }
+//    const shapesToRedraw = allShapes.filter(item => {
+//        if(item.id == shapeId) {
+//            return false;
+//        }
+//
+//        return item.rect.isIntersectsFrame(shape.rect);
+//    });
 
-        return item.rect.isIntersectsFrame(shape.rect);
-    });
-
-    if (shapesToRedraw.length > 0) {
-        shapesToRedraw.forEach(item => drawShape(item));
-    }
+//    if (shapesToRedraw.length > 0) {
+//        shapesToRedraw.forEach(item => drawShape(item));
+//    }
 
     switch(shapeType) {
     case ShapeTypes.ARROW:
@@ -176,10 +176,10 @@ function adjustShapeTo(shapeType, shapeId) {
     }
 }
 
-function eraseRect(rect) {
-    console.log(rect);
-    ctx.clearRect(rect.minX, rect.minY, rect.width, rect.height)
-}
+//function eraseRect(rect) {
+//    console.log(rect);
+//    ctx.clearRect(rect.minX, rect.minY, rect.width, rect.height)
+//}
 
 function drawLine(start, end) {
     ctx.beginPath();
@@ -219,14 +219,14 @@ function drawTriangle(startPoint, middlePoint, lastPoint) {
     ctx.stroke()
 }
 
-function drawShape(shape) {
-    ctx.beginPath();
-    ctx.moveTo(shape.points[0].x, shape.points[0].y);
-    shape.points.forEach(point => {
-        ctx.lineTo(point.x, point.y);
-    });
-    ctx.stroke();
-}
+//function drawShape(shape) {
+//    ctx.beginPath();
+//    ctx.moveTo(shape.points[0].x, shape.points[0].y);
+//    shape.points.forEach(point => {
+//        ctx.lineTo(point.x, point.y);
+//    });
+//    ctx.stroke();
+//}
 
 function findDimIn(points) {
     let cMaxX = -9999;

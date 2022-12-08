@@ -23,7 +23,7 @@ def model_predict(file_path,model):
     preds = model.predict(pic)
     return preds
 
-model_path = 'models/pretrained_model.h5'
+model_path = 'models/pretrained_DenseNet201.h5'
 model = load_model(model_path)
 
 
